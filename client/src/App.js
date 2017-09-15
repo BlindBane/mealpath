@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import MealList from './components/MealList';
+import sampleData from './data.json';
 
 const Wrapper = styled.div`text-align: left;`;
 
@@ -17,14 +19,6 @@ const Title = styled.h2`
   margin: 0;
 `;
 
-const Section = styled.section`
-  float: left;
-  margin: 0 0.2%;
-  padding: 0;
-  width: 32%;
-  border: 1px solid black;
-`;
-
 class App extends Component {
   render() {
     return (
@@ -32,10 +26,7 @@ class App extends Component {
         <Header>
           <Title>MealPath</Title>
         </Header>
-        <Section>WHOA</Section>
-        <Section>WHOA</Section>
-        <Section>WHOA</Section>
-        <Section>WHOA</Section>
+        <MealList meals={sampleData} />
       </Wrapper>
     );
   }
