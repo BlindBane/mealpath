@@ -1,32 +1,27 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import fetchMealData from './utils/fetchMealData';
+import Header from './components/Header';
 import MealList from './components/MealList';
-import sampleData from './data.json';
 
 const Wrapper = styled.div`text-align: left;`;
 
-const Header = styled.div`
-  background-color: green;
-  color: white;
-  height: 8vh;
-  padding-top: 1px;
-  margin: 0;
-`;
-
-const Title = styled.h2`
-  color: white;
-  padding: 0;
-  margin: 0;
-`;
-
 class App extends Component {
+  state = {
+    serachTerm: 'test SearchTerm',
+    mealData: []
+  };
+  componentDidMount = () => {
+    fetchMealData().then(mealData => {
+      this.setState({ mealData });
+    });
+  };
   render() {
     return (
       <Wrapper>
-        <Header>
-          <Title>MealPath</Title>
-        </Header>
-        <MealList meals={sampleData} />
+        <Header />
+        {this.state.mealData ? <MealList meals={this.state.mealData} /> : 'lol'}
+        {/* <MealList meals={this.state.mealData} /> */}
       </Wrapper>
     );
   }

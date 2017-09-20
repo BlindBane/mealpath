@@ -13,7 +13,7 @@ const yelpSearch = () => {
   const client = yelp.client(process.env.YELP_TOKEN);
 
   client.search(searchRequest).then(response => {
-    const firstResult = response.jsonBody.businesses[0];
+    const firstResult = response.jsonBody.businesses;
     const prettyJson = JSON.stringify(firstResult, null, 4);
     console.log(prettyJson);
   });

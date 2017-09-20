@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
+const mealData = require('../data.json');
+
 router.get('/', function(req, res) {
-  res.json({ message: 'All Meals' });
+  res.json({ meals: mealData });
 });
 
 router.get('/:id', function(req, res) {
