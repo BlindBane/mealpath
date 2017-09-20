@@ -20,8 +20,7 @@ class App extends Component {
     return (
       <Wrapper>
         <Header />
-        {this.state.mealData ? <MealList meals={this.state.mealData} /> : 'lol'}
-        {/* <MealList meals={this.state.mealData} /> */}
+        {this.state.mealData ? <MealList meals={this.state.mealData} /> : null}
       </Wrapper>
     );
   }
